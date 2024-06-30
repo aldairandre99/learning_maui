@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+
+            <Entry
+                x:Name="FirstName"
+                Placeholder="Fist Name"
+                TextChanged="FirstName_TextChanged"/>
+            <Entry
+                x:Name="LastName"
+                Placeholder="Last Name"
+                TextChanged="LastName_TextChanged"/>
+
+            <Label
+                x:Name="FullName"/>
+
+            <Button
+                x:Name="JoinBtn"
+                Text="Join names"
+                SemanticProperties.Hint="Join names"
+                Clicked="ButtonCliked"
+                HorizontalOptions="Fill"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
