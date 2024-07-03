@@ -1,32 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.MainPage">
+             x:Class="MauiApp1.MainPage"
+             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+             x:DataType="viewmodel:MainViewModal">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Grid RowDefinitions="100,Auto,*"
+                  ColumnDefinitions=".75*,.25*"
+                  Padding="10">
+                <Image Grid.ColumnSpan="2"
+                       Source="dotnet_bot.png"/>
+                <Entry Placeholder="Enter Task"
+                       Text="{Binding Text}"
+                       Grid.Row="1"/>
+                <Button Text="Add"
+                        Command="{Binding AddCommand}"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
 
-
-            <Entry
-                x:Name="FirstName"
-                Placeholder="Fist Name"
-                TextChanged="FirstName_TextChanged"/>
-            <Entry
-                x:Name="LastName"
-                Placeholder="Last Name"
-                TextChanged="LastName_TextChanged"/>
-
-            <Label
-                x:Name="FullName"/>
-
-            <Button
-                x:Name="JoinBtn"
-                Text="Join names"
-                SemanticProperties.Hint="Join names"
-                Clicked="ButtonCliked"
-                HorizontalOptions="Fill"/>
+                <CollectionView Grid.Row="2"
+                                Grid.ColumnSpan="2"
+                                ItemsSource="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type x:String}">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItem Text="Delete"
+                                               BackgroundColor="Red"
+                                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModal}},Path=DeleteCommand}"
+                                               CommandParameter="{Binding .}"/>
+                                </SwipeView.RightItems>
+                                <Grid Padding="0,5">
+                                    <Frame>
+                                        <Label Text="{Binding .}"
+                                               FontSize="24"/>
+                                    </Frame>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 
