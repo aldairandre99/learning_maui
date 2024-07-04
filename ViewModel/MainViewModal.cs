@@ -12,26 +12,58 @@ public partial class MainViewModal : ObservableObject
 
 
   [ObservableProperty]
-  string name;
+  double numb1 = 0;
 
   [ObservableProperty]
-  string sirName;
+  double numb2 = 0;
 
 
   [ObservableProperty]
-  string outPut;
+  double result;
 
 
 
   [RelayCommand]
-  void ShowName()
+  void Some()
   {
-    if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(SirName))
+    if (Numb1 > 0 && Numb2 > 0)
     {
-      OutPut = "";
+      Result = Numb1 + Numb2;
+      Numb1 = 0;
+      Numb2 = 0;
     }
-    else
-      OutPut = $"Welcome {Name} {SirName}";
+  }
 
+  [RelayCommand]
+  void Sub()
+  {
+    if (Numb1 > 0 && Numb2 > 0)
+    {
+      Result = Numb1 - Numb2;
+      Numb1 = 0;
+      Numb2 = 0;
+    }
+  }
+
+  [RelayCommand]
+  void Times()
+  {
+    if (Numb1 > 0 && Numb2 > 0)
+    {
+      Result = Numb1 * Numb2;
+      Numb1 = 0;
+      Numb2 = 0;
+    }
+  }
+
+  [RelayCommand]
+  void Div()
+  {
+    if (Numb1 > 0 && Numb2 > 0)
+    {
+      Result = Numb1 / Numb2;
+      Numb1 = 0;
+      Numb2 = 0;
+    }
   }
 }

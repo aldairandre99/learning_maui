@@ -9,21 +9,34 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Entry Placeholder="Nome"
-                   Margin="0,50,0,0"
-                   Text="{Binding Name}"/>
+                        <Label Text="Calculator"
+                               FontSize="Title"
+                               Margin="0,0"
+                               FontAttributes="Bold"
+                               TextTransform="Uppercase"/>
+                        <Entry Placeholder="First Number"
+                               Margin="0,0,0,20"
+                               Text="{Binding Numb1}"/>
 
-            <Entry Placeholder="Sirname"
-                   Margin="0,0,0,0"
-                   Text="{Binding SirName}"/>
+                        <Entry Placeholder="Sec Number"
+                               Text="{Binding Numb2}"/>
 
-            <Label Text="{Binding OutPut}"
-                    HorizontalTextAlignment="Center"
-                    Margin="0,20,0,50"
-                    FontSize="Title"/>
-            <Button Text="Click me"
-                    Command="{Binding ShowNameCommand}"/>
-        </VerticalStackLayout>
-    </ScrollView>
+                        <Label Text="{Binding Result}"
+                               HorizontalTextAlignment="Center"
+                               Margin="0,0,0,0"
+                               FontSize="Title"/>
+
+                        <FlexLayout JustifyContent="SpaceBetween">
+                                <Button Text="Some"
+                                        Command="{Binding SomeCommand}"/>
+                                <Button Text="Sub"
+                                        Command="{Binding SubCommand}"/>
+                                <Button Text="Times"
+                                        Command="{Binding TimesCommand}"/>
+                                <Button Text="div"
+                                        Command="{Binding DivCommand}"/>
+                        </FlexLayout>
+                </VerticalStackLayout>
+        </ScrollView>
 
 </ContentPage>
