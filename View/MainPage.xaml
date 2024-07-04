@@ -9,42 +9,20 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Grid RowDefinitions="100,Auto,*"
-                  ColumnDefinitions=".75*,.25*"
-                  Padding="10">
-                <Image Grid.ColumnSpan="2"
-                       Source="dotnet_bot.png"/>
-                <Entry Placeholder="Enter Task"
-                       Text="{Binding Text}"
-                       Grid.Row="1"/>
-                <Button Text="Add"
-                        Command="{Binding AddCommand}"
-                        Grid.Row="1"
-                        Grid.Column="1"/>
+            <Entry Placeholder="Nome"
+                   Margin="0,50,0,0"
+                   Text="{Binding Name}"/>
 
-                <CollectionView Grid.Row="2"
-                                Grid.ColumnSpan="2"
-                                ItemsSource="{Binding Items}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="{x:Type x:String}">
-                            <SwipeView>
-                                <SwipeView.RightItems>
-                                    <SwipeItem Text="Delete"
-                                               BackgroundColor="Red"
-                                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModal}},Path=DeleteCommand}"
-                                               CommandParameter="{Binding .}"/>
-                                </SwipeView.RightItems>
-                                <Grid Padding="0,5">
-                                    <Frame>
-                                        <Label Text="{Binding .}"
-                                               FontSize="24"/>
-                                    </Frame>
-                                </Grid>
-                            </SwipeView>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Grid>
+            <Entry Placeholder="Sirname"
+                   Margin="0,0,0,0"
+                   Text="{Binding SirName}"/>
+
+            <Label Text="{Binding OutPut}"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,20,0,50"
+                    FontSize="Title"/>
+            <Button Text="Click me"
+                    Command="{Binding ShowNameCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 

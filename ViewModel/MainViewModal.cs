@@ -7,35 +7,31 @@ namespace MauiApp1.ViewModel;
 public partial class MainViewModal : ObservableObject
 {
 
-  public MainViewModal()
-  {
-    Items = [];
-  }
+  public MainViewModal() { }
+
+
 
   [ObservableProperty]
-  ObservableCollection<string> items;
+  string name;
 
   [ObservableProperty]
-  string text;
+  string sirName;
+
+
+  [ObservableProperty]
+  string outPut;
+
+
 
   [RelayCommand]
-  void Add()
+  void ShowName()
   {
-    if (string.IsNullOrWhiteSpace(Text))
-      return;
-    Items.Add(Text);
-    // Addd our item
-    Text = string.Empty;
-  }
-
-  [RelayCommand]
-  void Delete(string s)
-  {
-    if (Items.Contains(s))
+    if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(SirName))
     {
-      Items.Remove(s);
+      OutPut = "";
     }
-
+    else
+      OutPut = $"Welcome {Name} {SirName}";
 
   }
 }
