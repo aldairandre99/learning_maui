@@ -4,38 +4,24 @@
              x:Class="MauiApp1.MainPage"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:DataType="viewmodel:MainViewModal">
+        <ContentPage.Resources>
+                <ResourceDictionary>
+                        <Style TargetType="Label"
+                                        x:Key="LabelStyle">
+                                <Setter Property="TextColor"
+                                                Value="Red"/>
+                                <Setter Property="FontSize"
+                                                Value="Title"/>
+                        </Style>
+                </ResourceDictionary>
+        </ContentPage.Resources>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-                        <Label Text="Calculator"
-                               FontSize="Title"
-                               Margin="0,0"
-                               FontAttributes="Bold"
-                               TextTransform="Uppercase"/>
-                        <Entry Placeholder="First Number"
-                               Margin="0,0,0,20"
-                               Text="{Binding Numb1}"/>
-
-                        <Entry Placeholder="Sec Number"
-                               Text="{Binding Numb2}"/>
-
-                        <Label Text="{Binding Result}"
-                               HorizontalTextAlignment="Center"
-                               Margin="0,0,0,0"
-                               FontSize="Title"/>
-
-                        <FlexLayout JustifyContent="SpaceBetween">
-                                <Button Text="Some"
-                                        Command="{Binding SomeCommand}"/>
-                                <Button Text="Sub"
-                                        Command="{Binding SubCommand}"/>
-                                <Button Text="Times"
-                                        Command="{Binding TimesCommand}"/>
-                                <Button Text="div"
-                                        Command="{Binding DivCommand}"/>
-                        </FlexLayout>
+        <ScrollView>
+                <VerticalStackLayout
+                        Padding="30,0"
+                        Spacing="25">
+                        <Label Text="Testing Styles"
+                                        Style="{StaticResource LabelStyle}"/>
                 </VerticalStackLayout>
         </ScrollView>
 
