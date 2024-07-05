@@ -4,17 +4,6 @@
              x:Class="MauiApp1.MainPage"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:DataType="viewmodel:MainViewModal">
-        <ContentPage.Resources>
-                <ResourceDictionary>
-                        <Style TargetType="Label"
-                                        x:Key="LabelStyle">
-                                <Setter Property="TextColor"
-                                                Value="Red"/>
-                                <Setter Property="FontSize"
-                                                Value="Title"/>
-                        </Style>
-                </ResourceDictionary>
-        </ContentPage.Resources>
 
         <ScrollView>
                 <VerticalStackLayout
@@ -22,6 +11,7 @@
                         Spacing="25">
                         <Label Text="Testing Styles"
                                         Style="{StaticResource LabelStyle}"/>
+                        <Entry Placeholder="Palavra Passe"/>
                 </VerticalStackLayout>
         </ScrollView>
 
