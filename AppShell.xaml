@@ -23,6 +23,7 @@
         </Tab>
     </TabBar> -->
     <ShellContent
+        Title="Calculator"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage"/>
 </Shell>

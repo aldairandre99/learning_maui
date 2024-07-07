@@ -3,15 +3,238 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
-             x:DataType="viewmodel:MainViewModal">
+             x:DataType="viewmodel:MainViewModal"
+             Padding="20,0">
+        <ContentPage.Resources>
+                <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+                        <Style TargetType="Button"
+                               x:Key="ButtonResStyle">
+                                <Setter Property="HorizontalOptions"
+                                        Value="End"/>
+                                <Setter Property="FontSize"
+                                        Value="80"/>
+                                <Setter Property="FontAttributes"
+                                        Value="Bold"/>
+                        </Style>
+
+                        <Style TargetType="Button"
+                               x:Key="TextStyle">
+                                <Setter Property="HorizontalOptions"
+                                        Value="Center"/>
+                                <Setter Property="VerticalOptions"
+                                        Value="Center"/>
+                                <Setter Property="FontSize"
+                                        Value="Title"/>
+                                <Setter Property="FontAttributes"
+                                        Value="Bold"/>
+                        </Style>
+
+                        <Style TargetType="Button"
+                               x:Key="CalButtonStyle">
+                                <Setter Property="TextColor"
+                                        Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}"/>
+                                <Setter Property="BackgroundColor"
+                                        Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"/>
+                                <Setter Property="FontFamily"
+                                        Value="OpenSansRegular"/>
+                                <Setter Property="FontAttributes"
+                                        Value="Bold"/>
+                                <Setter Property="FontSize"
+                                        Value="Title"/>
+                                <Setter Property="BorderWidth"
+                                        Value="0"/>
+                                <Setter Property="Padding"
+                                        Value="14,10"/>
+                                <Setter Property="MinimumHeightRequest"
+                                        Value="80"/>
+                                <Setter Property="MinimumWidthRequest"
+                                        Value="80"/>
+                                <Setter Property="CornerRadius"
+                                        Value="40"/>
+                                <Setter Property="VisualStateManager.VisualStateGroups">
+                                        <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                        <VisualState x:Name="Normal"/>
+                                                        <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                        <Setter Property="TextColor"
+                                                                                Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}"/>
+                                                                        <Setter Property="BackgroundColor"
+                                                                                Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"/>
+                                                                </VisualState.Setters>
+                                                        </VisualState>
+                                                        <VisualState x:Name="PointerOver"/>
+                                                </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                </Setter>
+                        </Style>
+
+                        <Style TargetType="Button"
+                               x:Key="CalButtonStyle2">
+                                <Setter Property="TextColor"
+                                        Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}"/>
+                                <Setter Property="BackgroundColor"
+                                        Value="Orange"/>
+                                <Setter Property="FontFamily"
+                                        Value="OpenSansRegular"/>
+                                <Setter Property="FontAttributes"
+                                        Value="Bold"/>
+                                <Setter Property="FontSize"
+                                        Value="Title"/>
+                                <Setter Property="BorderWidth"
+                                        Value="0"/>
+                                <Setter Property="CornerRadius"
+                                        Value="40"/>
+                                <Setter Property="Padding"
+                                        Value="14,10"/>
+                                <Setter Property="MinimumHeightRequest"
+                                        Value="80"/>
+                                <Setter Property="MinimumWidthRequest"
+                                        Value="80"/>
+                                <Setter Property="VisualStateManager.VisualStateGroups">
+                                        <VisualStateGroupList>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                        <VisualState x:Name="Normal"/>
+                                                        <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                        <Setter Property="TextColor"
+                                                                                Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}"/>
+                                                                        <Setter Property="BackgroundColor"
+                                                                                Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray600}}"/>
+                                                                </VisualState.Setters>
+                                                        </VisualState>
+                                                        <VisualState x:Name="PointerOver"/>
+                                                </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                </Setter>
+                        </Style>
+
+                </ResourceDictionary>
+        </ContentPage.Resources>
 
         <ScrollView>
-                <VerticalStackLayout
-                        Padding="30,0"
-                        Spacing="25">
-                        <Label Text="Testing Styles"
-                                        Style="{StaticResource LabelStyle}"/>
-                        <Entry Placeholder="Palavra Passe"/>
+                <VerticalStackLayout>
+                        <Grid  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                               ColumnDefinitions="*,*,*,*"
+                               RowSpacing="20"
+                               ColumnSpacing="10">
+
+                                <Label
+                                        Grid.ColumnSpan="4"
+                                        Text="{Binding Res}"
+                                        Style="{StaticResource ButtonResStyle}"/>
+
+                                <!--       <BoxView Background="LightGray"
+                                     Grid.Row="1"
+                                     Grid.Column="0"/> -->
+                                <Button Text="C"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="+/-"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="%"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+                                <Button Text="Div"
+                                        Grid.Row="1"
+                                        Grid.Column="4"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <!-- 2nd Line -->
+
+                                <Button Text="7"
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Style="{StaticResource CalButtonStyle}"
+                                        Command="{Binding WriteInScreenCommand}"/>
+
+                                <Button Text="8"
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CalButtonStyle}"
+                                        Command="{Binding WriteInScreenCommand}"/>
+
+                                <Button Text="9"
+                                        Grid.Row="2"
+                                        Grid.Column="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+                                <Button Text="X"
+                                        Grid.Row="2"
+                                        Grid.Column="3"
+                                        Style="{StaticResource CalButtonStyle2}"/>
+
+
+                                <!-- 3nd Line -->
+                                <Button Text="4"
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="5"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="6"
+                                        Grid.Row="3"
+                                        Grid.Column="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+                                <Button Text="-"
+                                        Grid.Row="3"
+                                        Grid.Column="3"
+                                        Style="{StaticResource CalButtonStyle2}"/>
+
+                                <!-- 4nd Line -->
+
+                                <Button Text="1"
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+
+                                <Button Text="2"
+                                        Grid.Row="4"
+                                        Grid.Column="1"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="3"
+                                        Grid.Row="4"
+                                        Grid.Column="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text="+"
+                                        Grid.Row="4"
+                                        Grid.Column="3"
+                                        Style="{StaticResource CalButtonStyle2}"/>
+
+                                <!-- 5nd Line -->
+
+                                <Button Text="0"
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+
+                                <Button Text=","
+                                        Grid.Row="5"
+                                        Grid.Column="2"
+                                        Style="{StaticResource CalButtonStyle}"/>
+                                <Button Text="="
+                                        Grid.Row="5"
+                                        Grid.Column="3"
+                                        Style="{StaticResource CalButtonStyle2}"/>
+
+
+
+                        </Grid>
                 </VerticalStackLayout>
         </ScrollView>
 

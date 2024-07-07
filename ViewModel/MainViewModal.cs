@@ -9,61 +9,23 @@ public partial class MainViewModal : ObservableObject
 
   public MainViewModal() { }
 
+  [ObservableProperty]
+  int n1 = 0;
+
+  [ObservableProperty]
+  int n2 = 0;
 
 
   [ObservableProperty]
-  double numb1 = 0;
-
-  [ObservableProperty]
-  double numb2 = 0;
-
-
-  [ObservableProperty]
-  double result;
+  double res = 0;
 
 
 
   [RelayCommand]
-  void Some()
+  void WriteInScreen(int txt)
   {
-    if (Numb1 > 0 && Numb2 > 0)
-    {
-      Result = Numb1 + Numb2;
-      Numb1 = 0;
-      Numb2 = 0;
-    }
+    Res = txt;
   }
 
-  [RelayCommand]
-  void Sub()
-  {
-    if (Numb1 > 0 && Numb2 > 0)
-    {
-      Result = Numb1 - Numb2;
-      Numb1 = 0;
-      Numb2 = 0;
-    }
-  }
 
-  [RelayCommand]
-  void Times()
-  {
-    if (Numb1 > 0 && Numb2 > 0)
-    {
-      Result = Numb1 * Numb2;
-      Numb1 = 0;
-      Numb2 = 0;
-    }
-  }
-
-  [RelayCommand]
-  void Div()
-  {
-    if (Numb1 > 0 && Numb2 > 0)
-    {
-      Result = Numb1 / Numb2;
-      Numb1 = 0;
-      Numb2 = 0;
-    }
-  }
 }
