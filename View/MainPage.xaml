@@ -138,15 +138,18 @@
                                 <Button Text="+/-"
                                         Grid.Row="1"
                                         Grid.Column="1"
-                                        Style="{StaticResource CalButtonStyle}"/>
+                                        Style="{StaticResource CalButtonStyle}"
+                                        IsEnabled="False"/>
+
                                 <Button Text="%"
                                         Grid.Row="1"
                                         Grid.Column="2"
-                                        Style="{StaticResource CalButtonStyle}"/>
-                                <Button Text="Div"
+                                        Style="{StaticResource CalButtonStyle}"
+                                        IsEnabled="False"/>
+                                <Button Text="/"
                                         Grid.Row="1"
                                         Grid.Column="4"
-                                        Style="{StaticResource CalButtonStyle}"
+                                        Style="{StaticResource CalButtonStyle2}"
                                         Command="{Binding OperatorCommand}"
                                         CommandParameter="/"/>
 
@@ -263,7 +266,8 @@
                                 <Button Text=","
                                         Grid.Row="5"
                                         Grid.Column="2"
-                                        Style="{StaticResource CalButtonStyle}"/>
+                                        Style="{StaticResource CalButtonStyle}"
+                                        IsEnabled="False"/>
 
                                 <Button Text="="
                                         Grid.Row="5"
